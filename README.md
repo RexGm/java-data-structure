@@ -1,1 +1,1 @@
-Data structures using java [README.md](README.md)
+Data structures using java
