@@ -1,3 +1,22 @@
 spring:
   application:
     name: data-structures
+  datasource:
+    url: jdbc:postgresql://localhost:5432/data
+    username: postgres
+    password: 1984
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+      thymeleaf:
+        cache: false
+
+server:
+  port: 8080
+
