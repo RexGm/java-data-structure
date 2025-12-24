@@ -1,6 +1,5 @@
 package com.demo.data_structures.entity;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -11,48 +10,63 @@ public class BenchmarkResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // milisaniye / nanosaniye
-    @Column(nullable = false)
-    private Long executionTimeNs;
+    private String dataStructure;
 
-    // Opsiyonel: memory ölçmek istersen
-    private Long memoryUsageKb;
+
+    private String algorithm;
+
+
+    private long executionTimeMs;
+
+    private long memoryUsageKb;
 
     @ManyToOne
-    @JoinColumn(name = "experiment_id", nullable = false)
+    @JoinColumn(name = "experiment_id")
     private Experiment experiment;
 
-    public BenchmarkResult() {
-    }
-
-    // getters & setters
-
+    // --- GETTER / SETTER ---
     public Long getId() {
         return id;
+    }
+
+    public String getDataStructure() {
+        return dataStructure;
+    }
+
+    public String getAlgorithm() {
+        return algorithm;
+    }
+
+    public long getExecutionTimeMs() {
+        return executionTimeMs;
+    }
+
+    public long getMemoryUsageKb() {
+        return memoryUsageKb;
+    }
+
+    public Experiment getExperiment() {
+        return experiment;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getExecutionTimeNs() {
-        return executionTimeNs;
+    public void setDataStructure(String dataStructure) {
+        this.dataStructure = dataStructure;
     }
 
-    public void setExecutionTimeNs(Long executionTimeNs) {
-        this.executionTimeNs = executionTimeNs;
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
     }
 
-    public Long getMemoryUsageKb() {
-        return memoryUsageKb;
+    public void setExecutionTimeMs(long executionTimeMs) {
+        this.executionTimeMs = executionTimeMs;
     }
 
-    public void setMemoryUsageKb(Long memoryUsageKb) {
+    public void setMemoryUsageKb(long memoryUsageKb) {
         this.memoryUsageKb = memoryUsageKb;
-    }
-
-    public Experiment getExperiment() {
-        return experiment;
     }
 
     public void setExperiment(Experiment experiment) {
